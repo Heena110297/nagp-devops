@@ -61,12 +61,14 @@ pipeline{
 			}
 		stage('Build Docker Image'){
 			steps{
-			   if(scmVars.GIT_BRANCH == 'origin/dev'){
-			   bat 'docker build --network=host --no-cache -t heenamittal11/demo-application:%BUILD_NUMBER% -f Dockerfile .'
-			   }
-			   else{
-			   bat 'docker build --network=host --no-cache -t heenamittal11/demo-application-feature:%BUILD_NUMBER% -f Dockerfile .'
-			   }
+				script{
+					if(scmVars.GIT_BRANCH == 'origin/dev'){
+						bat 'docker build --network=host --no-cache -t heenamittal11/demo-application:%BUILD_NUMBER% -f Dockerfile .'
+					}
+					else{
+						bat 'docker build --network=host --no-cache -t heenamittal11/demo-application-feature:%BUILD_NUMBER% -f Dockerfile .'
+					}
+				}
 			}
 		}
 		stage('Push to DTR'){
