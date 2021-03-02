@@ -4,4 +4,4 @@ RUN wget -O usr/local/tomcat/webapps/demoApp.war -u admin:Learning http://192.16
 
 EXPOSE 8080
 
-CMD['catalina.sh','bat']
+CMD ['catalina.sh','run']
