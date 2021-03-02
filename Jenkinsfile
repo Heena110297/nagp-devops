@@ -49,7 +49,7 @@ pipeline{
 					 snapshotRepo:'demoArtifactory',
 					 releaseRepo: 'demoArtifactory'
 					)
-					rtMavenRepo(
+					rtMavenRun(
 					 pom:'pom.xml',
 					 goals:'clean install',
 					 deployerId: 'deployer'
