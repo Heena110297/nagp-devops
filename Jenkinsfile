@@ -46,7 +46,7 @@ pipeline{
 					rtMavenDeployer(
 					 id: 'deployer',
 					 serverId:'demoArtifactory',
-					 snapshotRepo:'demoArtifactory'
+					 snapshotRepo:'demoArtifactory',
 					 releaseRepo: 'demoArtifactory'
 					)
 					rtMavenRepo(
