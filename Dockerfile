@@ -4,4 +4,4 @@ RUN wget -O /usr/local/tomcat/webapps/demoApp.war http://192.168.18.90:8082/arti
 
 EXPOSE 8080
 
-CMD ['catalina.sh','run']
+CMD ["catalina.sh","run"]
