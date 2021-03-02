@@ -117,10 +117,10 @@ pipeline{
 		 steps{
 			script{
 			   if(scmVars.GIT_BRANCH == 'origin/dev'){
-				bat 'docker run -it --name demo-application -d -p 8080:8080 heenamittal11/demo-application:%BUILD_NUMBER%'
+				bat 'docker run -it --name demo-application -d -p 6200:8080 heenamittal11/demo-application:%BUILD_NUMBER%'
 			   }
 			   else{
-					bat 'docker run -it --name demo-application-feature -d -p 8090:8080 heenamittal11/demo-application-feature:%BUILD_NUMBER%'
+					bat 'docker run -it --name demo-application-feature -d -p 6300:8080 heenamittal11/demo-application-feature:%BUILD_NUMBER%'
 			   }
 			}
 		 }
