@@ -73,16 +73,20 @@ pipeline{
 		}
 		stage('Push to DTR'){
 			steps{
+			  script{
+			   bat 'docker login -u heenamittal11 -p Docker@11'
 			   if(scmVars.GIT_BRANCH == 'origin/dev'){
 			   bat 'docker push heenamittal11/demo-application:%BUILD_NUMBER%'
 			   }
 			   else{
 			   bat 'docker push heenamittal11/demo-application-feature:%BUILD_NUMBER%'
 			   }
+			   }
 			}
 		}
 		stage('Stop Running Container'){
 			steps{
+			 script{
 			   if(scmVars.GIT_BRANCH == 'origin/dev'){
 			   bat '''
 				for /f %%i in ('docker ps -aqf "name=^demo-application"') set containerId=%%i
@@ -105,7 +109,7 @@ pipeline{
 					)
 			   '''
 			   }
-		    }
+		    }}
 	    }
     }
 }
