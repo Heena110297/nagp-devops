@@ -111,6 +111,18 @@ pipeline{
 			   }
 		    }}
 	    }
+		stage('Docker deployment'){
+		 steps{
+			script{
+			   if(scmVars.GIT_BRANCH == 'origin/dev'){
+				bat 'docker run -it --name demo-application -d -p 8080:8080 heenamittal11/demo-application:%BUILD_NUMBER%'
+			   }
+			   else{
+					bat 'docker run -it --name demo-application-feature -d -p 8080:8080 heenamittal11/demo-application-feature:%BUILD_NUMBER%'
+			   }
+			}
+		 }
+		}
     }
 }
 
