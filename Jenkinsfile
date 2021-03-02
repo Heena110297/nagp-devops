@@ -126,4 +126,7 @@ pipeline{
 		 }
 		}
     }
+	post{
+	  junit 'target/surefire-reports/*.xml'
+	}
 }
